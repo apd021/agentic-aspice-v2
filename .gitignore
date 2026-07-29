@@ -1,0 +1,10 @@
+node_modules
+dist
+.DS_Store
+*.local
+.vite
+
+# The Automotive SPICE PAM is redistribution-restricted by the VDA: recipients
+# are not permitted to further distribute it. Keep it out of any shared remote.
+Automotive-SPICE-PAM-v40.pdf
+*.pdf

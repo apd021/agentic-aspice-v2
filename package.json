@@ -1,0 +1,30 @@
+{
+  "name": "agentic-aspice-v2",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "check": "tsc -b && npm run check:dataset && npm run check:diagrams",
+    "check:dataset": "esbuild scripts/check-dataset.ts --bundle --platform=node --format=esm --log-level=warning --outfile=node_modules/.cache/check-dataset.mjs && node node_modules/.cache/check-dataset.mjs",
+    "check:diagrams": "esbuild scripts/check-diagrams.ts --bundle --platform=node --format=esm --packages=external --log-level=warning --outfile=node_modules/.cache/check-diagrams.mjs && node node_modules/.cache/check-diagrams.mjs"
+  },
+  "dependencies": {
+    "mermaid": "^11.4.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "@types/jsdom": "^28.0.3",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "jsdom": "^29.1.1",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.7"
+  }
+}
