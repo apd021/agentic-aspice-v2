@@ -19,15 +19,7 @@ export default function App() {
   const selected = ordered.find((process) => process.id === selectedId) ?? null;
 
   if (processes.length === 0) {
-    return (
-      <>
-        <EmptyState
-          onImportClick={() => setImportOpen(true)}
-          onLoadDataset={(bundle) => importBundle(bundle, 'replace')}
-        />
-        {importOpen && <ImportPanel onImport={importBundle} onClose={() => setImportOpen(false)} />}
-      </>
-    );
+    return <EmptyState onLoadDataset={(bundle) => importBundle(bundle, 'replace')} />;
   }
 
   return (

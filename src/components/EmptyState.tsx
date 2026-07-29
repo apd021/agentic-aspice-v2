@@ -1,24 +1,13 @@
-import { useState } from 'react';
 import type { ProcessBundle } from '../types';
 import { TIERS } from '../types';
 import { TIER_DEFINITIONS } from '../lib/tiers';
 import { DATASETS } from '../data/datasets';
 
 interface EmptyStateProps {
-  onImportClick: () => void;
   onLoadDataset: (bundle: ProcessBundle) => void;
 }
 
-export function EmptyState({ onImportClick, onLoadDataset }: EmptyStateProps) {
-  const [copied, setCopied] = useState(false);
-
-  async function copyPrompt() {
-    const response = await fetch('/meta-prompt.md');
-    await navigator.clipboard.writeText(await response.text());
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  }
-
+export function EmptyState({ onLoadDataset }: EmptyStateProps) {
   return (
     <div className="mx-auto max-w-3xl px-8 py-20">
       <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">Agentic SDLC</p>
@@ -45,30 +34,6 @@ export function EmptyState({ onImportClick, onLoadDataset }: EmptyStateProps) {
             <p className="mt-1.5 text-[11px] leading-relaxed text-slate-600">{dataset.provenance}</p>
           </button>
         ))}
-      </div>
-
-      <div className="mt-8 rounded-xl border border-white/8 bg-white/[0.02] p-4">
-        <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">Or add your own</p>
-        <p className="mt-2 text-sm text-slate-400">
-          Run the bundled meta-prompt against your standard text to get JSON in this app&rsquo;s schema, then import it.
-          Validation names the exact field when something is missing.
-        </p>
-        <div className="mt-3 flex gap-2">
-          <button
-            type="button"
-            onClick={copyPrompt}
-            className="rounded-lg border border-white/10 px-3 py-1.5 text-xs text-slate-300 transition hover:bg-white/5"
-          >
-            {copied ? 'Copied' : 'Copy meta-prompt'}
-          </button>
-          <button
-            type="button"
-            onClick={onImportClick}
-            className="rounded-lg bg-slate-100 px-3 py-1.5 text-xs font-medium text-slate-900 transition hover:bg-white"
-          >
-            Import JSON
-          </button>
-        </div>
       </div>
 
       <div className="mt-8 rounded-xl border border-white/8 bg-white/[0.02] p-4">
