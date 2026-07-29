@@ -4,5 +4,6 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  base: '/agentic-aspice-v2/',
   server: { port: 5173 },
 });
