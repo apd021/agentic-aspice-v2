@@ -26,8 +26,6 @@ Then open http://localhost:5173 and pick a process set.
 
 Process purposes, outcomes and base practice definitions come from Automotive SPICE PAM v4.0 clause 4.4. Everything else — roles, RACI, autonomy tiers, guardrails, metrics, risks and controls — is authored here, because the PAM deliberately does not prescribe them (see its Annex C.3.4 on why a PAM is not a development process blueprint). Treat the overlay as a starting position to argue with, not as compliance evidence.
 
-A single illustrative Automotive SPICE Software Architectural Design process is also included for evaluating the interface. It is not quoted from the standard.
-
 ## What the app does
 
 **Lifecycle waterfall.** The loaded processes in sequence as a flow diagram, with the autonomy mix of each visible at a glance.
